@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Raut | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+
+    <style>
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --accent-color: #f59e0b;
+            --gray-color: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--dark-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-color);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(248, 250, 252, 1) 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray-color);
+        }
+
+        .about-details {
+            margin-top: 30px;
+        }
+
+        .about-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .details-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .detail-item {
+            flex: 1 1 200px;
+            background-color: rgba(37, 99, 235, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .detail-item h5 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .detail-item p {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--light-color);
+        }
+
+        .skills-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .skills-category {
+            flex: 1;
+        }
+
+        .skills-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-category h3 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-name {
+            font-weight: 500;
+        }
+
+        .skill-percent {
+            color: var(--gray-color);
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: white;
+        }
+
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: transparent;
+            border: 1px solid var(--gray-color);
+            color: var(--gray-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .project-info p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            padding: 5px 10px;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            border-radius: 5px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-link {
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .project-link.outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .project-link.outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* YouTube Section */
+        #youtube {
+            background-color: var(--light-color);
+        }
+
+        .youtube-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .youtube-content p {
+            margin-bottom: 40px;
+            color: var(--gray-color);
+        }
+
+        .youtube-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .video-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 0, 0, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-icon {
+            opacity: 1;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .video-info p {
+            font-size: 0.8rem;
+            color: var(--gray-color);
+            margin-bottom: 0;
+        }
+
+        .youtube-btn {
+            margin-top: 40px;
+        }
+
+        /* Design Section */
+        #design {
+            background-color: white;
+        }
+
+        .design-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .design-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .design-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .design-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .design-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(37, 99, 235, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .design-item:hover .design-overlay {
+            opacity: 1;
+        }
+
+        .design-overlay h4 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .design-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        /* Certificates Section */
+        #certificates {
+            background-color: var(--light-color);
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .certificate-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .certificate-info {
+            padding: 20px;
+        }
+
+        .certificate-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .certificate-info p {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .certificate-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-link:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .contact-info p {
+            color: var(--gray-color);
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-item h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .contact-item p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            padding: 0 20px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .youtube-videos {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Aditya<span>Raut</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                    <li><a href="#design">Designs</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span>Aditya Raut</span></h1>
+                    <p>BCA Student | Frontend Developer | UI/UX Designer | Content Creator | Logo Maker | Entrepreneur</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn">View My Work</a>
+                        <a href="https://drive.google.com/file/d/1Gzejw2DPbm38bbt0mYL6QUMJfwkIlV7s/view?usp=drivesdk" class="btn btn-outline">Dowload CV</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="img/WhatsApp_Image_2025-01-02_at_10.50.52_39fb9f8c-removebg-preview.png" alt="Aditya Raut">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/xizwtpiwqewW9qZVGgeXy5Ee0kOc8MAHrkFwEXtm.avif" alt="About Aditya">
+                </div>
+                <div class="about-text">
+                    <h3>Who Am I?</h3>
+                    <p>I'm Aditya Raut, a passionate BCA student with a strong interest in frontend development, UI/UX design, and content creation. My journey in the tech world began when I first discovered the power of coding to bring creative ideas to life.</p>
+                    <p>Currently pursuing my Bachelor's in Computer Applications, I'm constantly expanding my knowledge and skills in web development and design. My goal is to become a full-stack developer with expertise in creating beautiful, functional, and user-friendly digital experiences.</p>
+                    <p>Beyond coding, I'm also a content creator on YouTube where I share my knowledge about technology, design, and my personal journey in the tech industry. I also run a small business called "fouthWall" where I offer branding and design services.</p>
+                    <div class="about-details">
+                        <h4>What I Do</h4>
+                        <div class="details-list">
+                            <div class="detail-item">
+                                <i class="fas fa-code"></i>
+                                <h5>Web Development</h5>
+                                <p>Building responsive and interactive websites using modern technologies</p>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <h5>UI/UX Design</h5>
+                                <p>Creating intuitive and visually appealing user interfaces and experiences</p>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-video"></i>
+                                <h5>Content Creation</h5>
+                                <p>Producing educational and engaging content about tech and design</p>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-bullhorn"></i>
+                                <h5>Branding</h5>
+                                <p>Developing unique brand identities through logos and visual assets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3><i class="fas fa-laptop-code"></i> Development</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">CSS</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">React JS</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Tailwind CSS</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Bootstrap</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">My Sql</span>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-pencil-ruler"></i> Design & Branding</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Figma (UI/UX)</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Canva (Graphics)</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Framer</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Logo Design</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Thumbnail Design</span>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 30px;"><i class="fas fa-tasks"></i> Other Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">MS Office</span>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Content Creation</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Branding</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Projects</h2>
+        </div>
+        <div class="projects-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web-dev">Website Development</button>
+            <button class="filter-btn" data-filter="logo">Freelancing</button>
+            <button class="filter-btn" data-filter="ecommerce">Store Website</button>
+            <button class="filter-btn" data-filter="business">Business Projects</button>
+            <button class="filter-btn" data-filter="web-clone">Clone Projects</button>
+        </div>
+        <div class="projects-grid">
+
+            <!-- Netflix Clone -->
+            <div class="project-card" data-category="web-clone">
+                <div class="project-image">
+                    <img src="img/Screenshot 2025-06-28 121750.png" alt="Netflix Clone Design">
+                </div>
+                <div class="project-info">
+                    <h3>App Clone Design</h3>
+                    <p>A complete frontend design for a Netflix clone using HTML & CSS, fully mobile responsive.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">Wireframe</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://adityaraut31.github.io/WEB-PROJECTS/Netfilx%20clone/" class="project-link">View Project</a>
+                        <a href="https://github.com/adityaraut31/WEB-PROJECTS/blob/main/Netfilx%20clone/readme.md" class="project-link outline">Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spotify Clone -->
+            <div class="project-card" data-category="web-dev">
+                <div class="project-image">
+                    <img src="img/1750577423547.jpeg" alt="Spotify Clone">
+                </div>
+                <div class="project-info">
+                    <h3>Spotify Clone</h3>
+                    <p>A responsive Spotify Clone website built with HTML, CSS, and JavaScript showcasing my frontend skills.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://adityaraut31.github.io/WEB-PROJECTS/project/" class="project-link">Live Demo</a>
+                        <a href="https://github.com/adityaraut31/WEB-PROJECTS/tree/main/project" class="project-link outline">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FourthWall Branding -->
+            <div class="project-card" data-category="logo">
+                <div class="project-image">
+                    <img src="img/Screenshot 2025-07-16 143119.png" alt="FourthWall Branding">
+                </div>
+                <div class="project-info">
+                    <h3>FourthWall Branding</h3>
+                    <p>Complete branding package for my small business including logo, color palette, and brand guidelines.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Logo</span>
+                        <span class="project-tag">Branding</span>
+                        <span class="project-tag">Canva</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://rrvm-shop.fourthwall.com/" class="project-link">View Designs</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Amazon Store -->
+            <div class="project-card" data-category="ecommerce">
+                <div class="project-image">
+                    <img src="img/1750667578881.jpeg" alt="Amazon Store Website">
+                </div>
+                <div class="project-info">
+                    <h3>Amazon Store Website</h3>
+                    <p>An e-commerce website for a clothing brand with product catalog, various functionality, and checkout process.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://adityaraut31.github.io/WEB-PROJECTS/project0/" class="project-link">Live Demo</a>
+                        <a href="https://github.com/adityaraut31/WEB-PROJECTS/tree/main/project0" class="project-link outline">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Twitter Services -->
+            <div class="project-card" data-category="business">
+                <div class="project-image">
+                    <img src="img/1750852994455.jpeg" alt="4th Wall Services">
+                </div>
+                <div class="project-info">
+                    <h3>Twitter Clone</h3>
+                    <p>Social Media website creted using html tailwind css and my design and branding services with Post and Memes.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Html</span>
+                        <span class="project-tag">Tailwind</span>
+                        <span class="project-tag">Wireframe</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://adityaraut31.github.io/Twitter-Project/twitter%20project/" class="project-link">Visit Site</a>
+                        <a href="https://github.com/adityaraut31/Twitter-Project" class="project-link outline">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banking App Wireframe -->
+            <div class="project-card" data-category="web-dev">
+                <div class="project-image">
+                    <img src="img/Screenshot 2025-07-16 162200.png" alt="Banking App Wireframe">
+                </div>
+                <div class="project-info">
+                    <h3>Hacker Portfolio</h3>
+                    <p>Wireframes and protofolio for a mobile responsive website with a Ai Research experience.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Html</span>
+                        <span class="project-tag">Ai Research</span>
+                        <span class="project-tag">Wireframe</span>
+                    </div>
+                    <div class="project-links">
+<a href="https://adityaraut31.github.io/WEB-PROJECTS/project3/" class="project-link">Visit Site</a>
+                        <a href="https://github.com/adityaraut31/WEB-PROJECTS/tree/main/project3" class="project-link outline">Code</a>
+        
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- YouTube Section -->
+    <section id="youtube">
+        <div class="container">
+            <div class="section-title">
+                <h2>My YouTube Content</h2>
+            </div>
+            <div class="youtube-content">
+                <p>I created Shyaries & Poetry Video on my YouTube channel. Subscribe to stay updated with my latest videos!</p>
+                <div class="youtube-videos">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <iframe width="400" height="225" src="https://www.youtube.com/embed/ZDyng81APNg?si=7pSh4tgqUsSZdrqU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Total Popular Shyaris Staus</h3>
+                            <p>RRVM SHYARIS COLLECTION</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <iframe width="400" height="225" src="https://www.youtube.com/embed/m7K5-ql0Faw?si=Utp3EmgH9aML4q6W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Total Best Shayaries In Rrvm</h3>
+                            <p>RRVM SHYARIS COLLECTION</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <iframe width="400" height="225" src="https://www.youtube.com/embed/p_2zcfNBkzM?si=AOm_JSOd2vU-Vy7j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-info">
+                            <h3>Emotional Shyaris</h3>
+                            <p>RRVM SHYARIS COLLECTION</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                           <iframe width="400" height="225" src="https://www.youtube.com/embed/uQmQG075z-o?si=PIP0d2dRjx38REHB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+                            </div>
+                        <div class="video-info">
+                           <h3>Popular Sad Shyaris</h3>
+                            <p>RRVM SHYARIS COLLECTION</p>
+                        </div>
+                    </div>
+                <a href="https://youtube.com/@rrvmshyari?si=mDBaTDw4RuvZnVap" class="btn youtube-btn">Visit My Channel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Section -->
+    <section id="design">
+        <div class="container">
+            <div class="section-title">
+                <h2>Logo & Thumbnail Designs</h2>
+            </div>
+            <p style="text-align: center; margin-bottom: 40px; color: var(--gray-color);">Professional branding, social media posts, and custom thumbnails & Logo created for clients, YouTube, and my personal business (FourthWall)</p>
+            <div class="design-gallery">
+                <div class="design-item">
+                    <img src="img/1749010490020.png" alt="Design Work">
+                    <div class="design-overlay">
+                        <h4>4th Wall Logo</h4>
+                        <p>Minimalist logo design for my branding business</p>
+                    </div>
+                </div>
+                <div class="design-item">
+                    <img src="img/1749010503213.png" alt="Design Work">
+                    <div class="design-overlay">
+                        <h4>YouTube Thumbnail</h4>
+                        <p>Eye-catching thumbnail for a tech tutorial video</p>
+                    </div>
+                </div>
+                <div class="design-item">
+                    <img src="img/1749010523631.png" alt="Design Work">
+                    <div class="design-overlay">
+                        <h4>Client Branding</h4>
+                        <p>Complete branding package for a local business</p>
+                    </div>
+                </div>
+                <div class="design-item">
+                    <img src="img/1749010538887.png" alt="Design Work">
+                    <div class="design-overlay">
+                        <h4>Social Media Post</h4>
+                        <p>Instagram post design for a marketing campaign</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Internship & Certificates</h2>
+            </div>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="img/Screenshot_20250715-201358.png" alt="Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Pyton Programing Internship</h3>
+                        <p>Completed a 1-month internship at CodeAplpha Remote working on real-world projects and enhancing my frontend skills.</p>
+                        <a href="https://drive.google.com/file/d/1E9RM_fPieeSfaTSF6EwUcHSZ3sNg0avK/view?usp=drivesdk" class="certificate-link">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="img/Screenshot_20250715-201108.png" alt="Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Introduce To Generative Ai Studio </h3>
+                        <p>Completed a Certificate This is an introductory level microlearning course aimed at explaining what Generative AI is, how it is used.</p>
+                        <a href="https://drive.google.com/file/d/1X91IzwOEfJBKn8YkK0CuI6L0UJ3NgIGJ/view?usp=sharing" class="certificate-link">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="img/image_b99c3344-b6ad-4337-baf4-fe20579c4cba20250715_193810.jpg" alt="Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Deloitte Australia's Technology on Forage.</h3>
+                        <p>Completed a job simulation involving development and coding Wrote a proposal for creating a dashboard .</p>
+                        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/udmxiyHeqYQLkTPvf_9PBTqmSxAf6zZTseP_xtCQyu8Xm44Rdra3M_1749008559920_completion_certificate.pdf" class="certificate-link">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="img/certificate-1752588649773.jpg" alt="Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>AI & ML Certificate</h3>
+                        <p>In this Kodacy Ai & Ml course, you will understand Python's concepts for AI, ML and related concepts like Artificial Neural Network.</p>
+                        <a href="https://kodacy.com/kodacy-certificate/?cert_hash=1adfd21585f05c38" class="certificate-link">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="img/Screenshot_20250715-193945.png" alt="Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>BCG's Data Science</h3>
+                        <p>Completed a customer data analysis simulation for Data Analytics,demonstrating advanced data analytics skills, .</p>
+                        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/Tcz8gTtprzAS4xSoK_SKZxezskWgmFjRvj9_4GnrShrxjTC3yYRDW_1737015060863_completion_certificate.pdf" class="certificate-link">View Certificate</a>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="img/Screenshot_20250715-194030.png" alt="Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Data Visualisation</h3>
+                        <p>Data Visualisation: Empowering Business with Effective Simulation involving creating data visualizations for Tata Consultancy Services.</p>
+                        <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/MyXvBcppsW2FkNYCX_ifobHAoMjQs9s6bKS_4GnrShrxjTC3yYRDW_1735717324289_completion_certificate.pdf" class="certificate-link">View Certificate</a>
+                        <div class="certificate-card">
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Connect!</h3>
+                    <p>Have a project in mind or want to discuss potential opportunities? Feel free to reach out through any of these channels.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>ramrajuraut@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 8999532093</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Maharstra, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/aditya-raju-raut?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/adityaraut31" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://youtube.com/@rrvmshyari?si=fchnTnzGJ3kiUeUp" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/_ram_raut/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/qr/7RQLBV7XHGLNJ1" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Aditya Raut</h3>
+                    <p>BCA Student | Frontend Developer | UI/UX Designer | Content Creator | Logo Maker | Entrepreneur</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/aditya-raju-raut?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/adityaraut31"><i class="fab fa-github"></i></a>
+                        <a href="https://youtube.com/@rrvmshyari?si=mDBaTDw4RuvZnVap"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/_ram_raut/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#youtube">YouTube</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#contact">Web Development</a></li>
+                        <li><a href="#contact">UI/UX Design</a></li>
+                        <li><a href="#contact">Logo Design</a></li>
+                        <li><a href="#contact">Thumbnail Design</a></li>
+                        <li><a href="#contact">Branding</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <p>Maharstra, India</p>
+                    <p>ramrajuraut@gmail.com</p>
+                    <p>+918999532093</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Aditya Raut. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const navLinksItems = document.querySelectorAll('.nav-links li');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        navLinksItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Sticky Header
+        const header = document.querySelector('#header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Projects Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Animate Skill Bars on Scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const percent = bar.parentElement.previousElementSibling.querySelector('.skill-percent').textContent;
+                bar.style.width = percent;
+            });
+        }
+
+        // Intersection Observer for skill bars animation
+        const skillsSection = document.querySelector('#skills');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(skillsSection);
+    </script>
+</body>
+</html>
